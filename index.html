@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lagun Beach Tourist Website</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.99); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="bg-[#f4f7f6] text-[#002d44] font-sans min-h-screen flex flex-col justify-between antialiased">
+
+    <!-- BARRA DE NAVEGAÇÃO SUPERIOR -->
+    <header class="bg-[#002d44] text-white px-6 sm:px-12 py-4 flex items-center justify-between sticky top-0 z-50 shadow-md">
+        <div class="flex items-center space-x-3">
+            <img src="imagens/logo lagun.png" alt="Lagun Beach Club" class="h-8 w-auto object-contain brightness-0 invert opacity-80">
+            <span class="text-xl font-bold tracking-wide"></span>
+        </div>
+        
+        <!-- LINKS DAS ABAS -->
+        <nav class="flex items-center space-x-2 sm:space-x-6 text-sm font-medium tracking-wide">
+            <button onclick="switchTab('inicio')" id="btn-inicio" class="px-4 py-2 rounded-full bg-white text-[#002d44] transition-all duration-300 shadow-sm font-bold">Início</button>
+            <button onclick="switchTab('restaurante')" id="btn-restaurante" class="px-4 py-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300">Restaurante</button>
+            <button onclick="switchTab('galeria')" id="btn-galeria" class="px-4 py-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300">Galeria</button>
+            <button onclick="switchTab('contato')" id="btn-contato" class="px-4 py-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300">Contato</button>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="flex-1">
+
+        <!-- 🏠 ABA: INÍCIO -->
+        <div id="tab-inicio" class="tab-content active">
+            <div class="relative w-full min-h-[500px] bg-[#002d44] flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+                
+                <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-50 z-0">
+                    <source src="imagens/video.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
+
+                <div class="relative max-w-4xl space-y-6 text-white z-10">
+                    <span class="text-xs uppercase tracking-[0.3em] font-semibold text-gray-200">BEM-VINDO AO PARAÍSO</span>
+                    <h1 class="text-5xl sm:text-7xl font-serif font-light tracking-tight leading-tight">
+                        Lagun <br><span class="font-bold italic">Beach</span>
+                    </h1>
+                    <p class="text-sm sm:text-base text-gray-200 max-w-2xl mx-auto font-light leading-relaxed">
+                        Piscina, Prainha, Restaurante, Cachoeira, Tirolesa e Passeio de Helicóptero — Tudo em um só lugar. Venha viver momentos que nunca vão sair da memória.
+                    </p>
+                </div>
+            </div>
+
+            <div class="max-w-4xl mx-auto px-6 py-16 space-y-6 text-center">
+                <h2 class="text-3xl font-serif font-bold text-[#002d44]">Sobre o Nosso Refúgio</h2>
+                <div class="w-16 h-0.5 bg-[#002d44]/20 mx-auto"></div>
+                <p class="text-sm sm:text-base text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Fundado com o propósito de integrar o ecoturismo de alto padrão à calmaria do litoral cearense, o Lagun Beach é um complexo planejado para oferecer lazer completo em total harmonia com a natureza. Localizado estrategicamente na região turística de Cruz, próximo às belezas de Jericoacoara, nosso espaço conta com infraestrutura premium, segurança e uma proposta única de bem-estar para toda a família.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- 🍽️ ABA: RESTAURANTE -->
+        <div id="tab-restaurante" class="tab-content p-6 sm:p-12 max-w-6xl mx-auto space-y-10">
+            <div class="text-center space-y-2">
+                <span class="text-xs font-bold tracking-widest uppercase text-gray-400">Experiência Gastronômica</span>
+                <h2 class="text-3xl font-serif font-bold text-[#002d44]">Nosso Cardápio</h2>
+                <p class="text-sm text-gray-500 max-w-xl mx-auto">Saboreie o melhor da culinária regional: desde frutos do mar frescos até pratos tradicionais e opções para todos os gostos.</p>
+                
+                <!-- Botão para Baixar o Cardápio -->
+                <div class="pt-4">
+                    <a href="#" download class="inline-flex items-center space-x-2 px-6 py-3 bg-[#002d44] text-white rounded-full text-xs font-bold uppercase tracking-widest transition duration-300 transform hover:scale-105 active:scale-98 shadow-sm">
+                        <span>📥 Baixar Cardápio Completo (PDF)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Grid com Múltiplos Retângulos de Pratos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Prato 1 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group shadow-xs hover:shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                    <div class="space-y-1 pr-3">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Camarão Crocante</h4>
+                        <p class="text-[11px] text-gray-400">Empanado no coco com geleia artesanal.</p>
+                        <span class="inline-block text-xs font-bold text-[#002d44] pt-1">R$ 68,00</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-gray-50">
+                        <img src="https://i.ibb.co/b3XvNq4/image-fa8c05.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+                <!-- Prato 2 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group shadow-xs hover:shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                    <div class="space-y-1 pr-3">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Peixe Inteiro Lagun</h4>
+                        <p class="text-[11px] text-gray-400">Grelhado na brasa com vegetais sazonais.</p>
+                        <span class="inline-block text-xs font-bold text-[#002d44] pt-1">R$ 120,00</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-gray-50">
+                        <img src="https://i.ibb.co/b3XvNq4/image-fa8c05.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+                <!-- Prato 3 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group shadow-xs hover:shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                    <div class="space-y-1 pr-3">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Drink Lagoa Azul</h4>
+                        <p class="text-[11px] text-gray-400">Curaçau blue, gin, limão e tônica premium.</p>
+                        <span class="inline-block text-xs font-bold text-[#002d44] pt-1">R$ 34,00</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-gray-50">
+                        <img src="https://i.ibb.co/b3XvNq4/image-fa8c05.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+                <!-- Prato 4 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group shadow-xs hover:shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                    <div class="space-y-1 pr-3">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Lagosta Grelhada</h4>
+                        <p class="text-[11px] text-gray-400">Na manteiga de ervas finas da horta.</p>
+                        <span class="inline-block text-xs font-bold text-[#002d44] pt-1">R$ 160,00</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-gray-50">
+                        <img src="https://i.ibb.co/b3XvNq4/image-fa8c05.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+                <!-- Prato 5 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group shadow-xs hover:shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                    <div class="space-y-1 pr-3">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Petisco de Filé</h4>
+                        <p class="text-[11px] text-gray-400">Tiras ao molho de queijo coalho rústico.</p>
+                        <span class="inline-block text-xs font-bold text-[#002d44] pt-1">R$ 72,00</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-gray-50">
+                        <img src="https://i.ibb.co/b3XvNq4/image-fa8c05.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+                <!-- Prato 6 -->
+                <div class="bg-white p-4 rounded-2xl border border-gray-100 flex items-center justify-between group shadow-xs hover:shadow-md transition duration-300 transform hover:-translate-y-0.5">
+                    <div class="space-y-1 pr-3">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase tracking-wide">Cocada de Forno</h4>
+                        <p class="text-[11px] text-gray-400">Servida quente com sorvete de creme.</p>
+                        <span class="inline-block text-xs font-bold text-[#002d44] pt-1">R$ 28,00</span>
+                    </div>
+                    <div class="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0 border border-gray-50">
+                        <img src="https://i.ibb.co/b3XvNq4/image-fa8c05.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 📸 ABA: GALERIA -->
+        <div id="tab-galeria" class="tab-content p-6 sm:p-12 max-w-6xl mx-auto space-y-12">
+            <!-- Slideshow principal -->
+            <div class="relative w-full h-[350px] sm:h-[450px] bg-gray-900 rounded-3xl overflow-hidden shadow-xs">
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+                    <img src="imagens/imagem inicio.JPG" class="w-full h-full object-cover" alt="Slide 1">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/1 (5).jpg" class="w-full h-full object-cover brightness-90" alt="Slide 2">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/comi1.jpg" class="w-full h-full object-cover brightness-90" alt="Slide 3">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/1 (3).jpg" class="w-full h-full object-cover brightness-90" alt="Slide 4">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/1 (4).jpg" class="w-full h-full object-cover brightness-90" alt="Slide 5">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/1 (1).jpg" class="w-full h-full object-cover brightness-90" alt="Slide 6">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/1 (6).jpg" class="w-full h-full object-cover brightness-90" alt="Slide 7">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/comi2.jpg" class="w-full h-full object-cover brightness-90" alt="Slide 8">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/1 (7).jpg" class="w-full h-full object-cover brightness-90" alt="Slide 9">
+                </div>
+                <div class="my-slide absolute inset-0 transition-opacity duration-1000 opacity-0 pointer-events-none">
+                    <img src="imagens/comi3.jpg" class="w-full h-full object-cover brightness-90" alt="Slide 10">
+                </div>
+                
+            </div>
+
+            <!-- Atrações -->
+            <div class="space-y-6">
+                <h3 class="text-2xl font-serif font-bold text-[#002d44] text-center">Nossas Atrações</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Bloco 1: Cachoeira -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xs border border-gray-100 group transition duration-300 hover:shadow-md">
+                        <div class="h-48 overflow-hidden">
+                            <img src="imagens/cach1.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Piscina">
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <h4 class="text-base font-bold flex items-center gap-2">Cachoeira</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Um espaço exclusivo para relaxar ao som da água corrente. O lugar perfeito para se refrescar e renovar as energias entre uma atração e outra.</p>
+                        </div>
+                    </div>
+                    <!-- Bloco 2: Tirolesa -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xs border border-gray-100 group transition duration-300 hover:shadow-md">
+                        <div class="h-48 overflow-hidden">
+                            <img src="imagens/tiro1.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Prainha">
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <h4 class="text-base font-bold flex items-center gap-2">Tirolesa</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Adrenalina com total segurança. Sinta a liberdade de voar sobre o complexo e garanta a vista panorâmica mais bonita de toda a região.</p>
+                        </div>
+                    </div>
+                    <!-- Bloco 3: Helicóptero -->
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-xs border border-gray-100 group transition duration-300 hover:shadow-md">
+                        <div class="h-48 overflow-hidden">
+                            <img src="imagens/hel1.jpg" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" alt="Cachoeira">
+                        </div>
+                        <div class="p-6 space-y-2">
+                            <h4 class="text-base font-bold flex items-center gap-2">Passeio de Helicóptero</h4>
+                            <p class="text-xs text-gray-500 leading-relaxed">Experiência premium para contemplar o litoral do alto. Um voo exclusivo para ter uma perspectiva inesquecível de todo o paraíso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✉️ ABA: CONTATO -->
+        <div id="tab-contato" class="tab-content p-6 sm:p-12 max-w-6xl mx-auto space-y-10">
+            <div class="text-center space-y-2 max-w-2xl mx-auto">
+                <span class="text-xs font-bold tracking-widest uppercase text-gray-400">FALE CONOSCO</span>
+                <h2 class="text-4xl font-serif font-medium text-[#002d44]">Pronto para sua aventura?</h2>
+                <p class="text-xs sm:text-sm text-gray-500 leading-relaxed">Entre em contato diretamente com a nossa equipe pelo WhatsApp ou e-mail. Estamos prontos para responder suas perguntas e ajudar você a planejar seu dia de lazer!</p>
+            </div>
+
+            <!-- Grids de Ação + Mapa Integrado -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Card WhatsApp -->
+                <a href="https://wa.me/558533001841" target="_blank" class="bg-[#eaf7f2] p-8 rounded-3xl text-center space-y-4 border border-[#d2ebe1] group transition duration-300 transform hover:scale-[1.02] shadow-xs flex flex-col items-center justify-center">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xs transition duration-300 group-hover:scale-110">
+                        <span class="text-2xl">💬</span>
+                    </div>
+                    <h4 class="font-serif font-bold text-lg text-[#002d44]">WhatsApp</h4>
+                    <p class="text-xs text-gray-500">Fale instantaneamente conosco para tirar dúvidas.</p>
+                </a>
+
+                <!-- Card E-mail -->
+                <a href="mailto:contato@lagunbeach.com.br" class="bg-gray-50 p-8 rounded-3xl text-center space-y-4 border border-gray-100 group transition duration-300 transform hover:scale-[1.02] shadow-xs flex flex-col items-center justify-center">
+                    <div class="w-14 h-14 bg-white rounded-full flex items-center justify-center shadow-xs transition duration-300 group-hover:scale-110">
+                        <span class="text-2xl">✉️</span>
+                    </div>
+                    <h4 class="font-serif font-bold text-lg text-[#002d44]">E-mail</h4>
+                    <p class="text-xs text-gray-500">contato@lagunbeach.com.br</p>
+                </a>
+
+                <!-- Bloco do Google Maps -->
+                <div class="bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-xs h-60 md:h-auto min-h-[220px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.904970569974!2d-40.41521832749258!3d-2.843770139306804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7e989acfdc33695%3A0x5fef66b341bff12c!2sLagun%20Beach%20Club!5e0!3m2!1spt-BR!2sbr!4v1783171031021!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 💚 RODAPÉ -->
+    <footer class="bg-[#002d44] text-white/90 pt-12 pb-8 px-6 sm:px-12 border-t border-white/5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-10 text-sm">
+            <!-- Coluna 1: Sobre -->
+            <div class="space-y-4">
+                <div class="flex items-center space-x-2">
+                    <img src="imagens/logo lagun.png" alt="Logo" class="h-6 w-auto object-contain brightness-0 invert opacity-80">
+                    <span class="font-bold tracking-wide text-lg text-white"></span>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed max-w-xs">
+                    O complexo de lazer ideal para curtir com toda a família. Viva momentos inesquecíveis conosco.
+                </p>
+            </div>
+
+            <!-- Coluna 2: Navegação -->
+            <div class="space-y-3">
+                <h4 class="font-bold text-xs uppercase tracking-widest text-white/40">Navegação</h4>
+                <ul class="space-y-2 text-xs text-gray-300">
+                    <li><button onclick="switchTab('inicio')" class="hover:text-white transition">Início</button></li>
+                    <li><button onclick="switchTab('restaurante')" class="hover:text-white transition">Restaurante</button></li>
+                    <li><button onclick="switchTab('galeria')" class="hover:text-white transition">Galeria</button></li>
+                    <li><button onclick="switchTab('contato')" class="hover:text-white transition">Contact</button></li>
+                </ul>
+            </div>
+
+            <!-- Coluna 3: Contato -->
+            <div class="space-y-3">
+    <h3 class="text-xs font-bold tracking-widest uppercase text-gray-400">CONTATO</h3>
+    <ul class="space-y-2 text-sm text-gray-300">
+        <!-- LINK DO WHATSAPP -->
+        <li>
+            <a href="https://wa.me/558533001841?text=Olá!%20Gostaria%20de%20tirar%20algumas%20dúvidas." 
+               target="_blank" 
+               class="flex items-center gap-2 hover:text-[#7dd3fc] transition-colors">
+                <span>💬</span> WhatsApp
+            </a>
+        </li>
+        
+        <!-- LINK DO E-MAIL -->
+        <li>
+            <a href="mailto:contato@lagunbeach.com.br" 
+               class="flex items-center gap-2 hover:text-[#7dd3fc] transition-colors break-all">
+                <span>✉️</span> contato@lagunbeach.com.br
+            </a>
+        </li>
+        
+        <!-- LINK DA LOCALIZAÇÃO (GOOGLE MAPS) -->
+        <li>
+            <a href="https://maps.app.goo.gl/eTfaFkgogynNZupD8" 
+               target="_blank" 
+               class="flex items-center gap-2 hover:text-[#7dd3fc] transition-colors">
+                <span>📍</span> Lagun Beach Club
+            </a>
+        </li>
+    </ul>
+</div>
+        </div>
+
+        <!-- Linha Inferior com os botões funcionais de Termos -->
+        <div class="max-w-6xl mx-auto mt-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 gap-4">
+            <span>© 2026 Lagun Beach. Todos os direitos reservados.</span>
+            <div class="flex space-x-4">
+                <button onclick="openModal('termos')" class="hover:text-white transition cursor-pointer">Termos e Condições</button>
+                <button onclick="openModal('privacidade')" class="hover:text-white transition cursor-pointer">Política de Privacidade</button>
+                <button onclick="openModal('cookies')" class="hover:text-white transition cursor-pointer">Cookies</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ⚪ JANELA FLUTUANTE (MODAL) COM BRANCO SUAVE QUE NÃO CANSA A VISTA -->
+    <div id="terms-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs transition-opacity duration-300">
+        <div class="bg-[#fafafa] text-[#002d44] w-full max-w-lg rounded-2xl shadow-xl p-6 sm:p-8 space-y-4 transform scale-100 border border-gray-100 max-h-[85vh] overflow-y-auto">
+            <h3 id="modal-title" class="text-xl font-serif font-bold border-b border-gray-200 pb-2">Título do Documento</h3>
+            <p id="modal-text" class="text-xs sm:text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                Texto descritivo padrão aqui.
+            </p>
+            <div class="pt-4 flex justify-end">
+                <button onclick="closeModal()" class="px-5 py-2 bg-[#002d44] text-white text-xs font-bold uppercase tracking-wider rounded-full transition duration-200 hover:bg-[#071c18] active:scale-98 shadow-xs">
+                    Entendi e Fechar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE INTERAÇÕES -->
+    <script>
+        function switchTab(tabName) {
+            // Esconde todas as abas
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            
+            // Reseta a estilização de todos os botões do menu superior
+            document.querySelectorAll('header nav button').forEach(btn => {
+                btn.className = "px-4 py-2 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-all duration-300";
+            });
+            
+            // Ativa a aba clicada
+            document.getElementById('tab-' + tabName).classList.add('active');
+            
+            // Destaca o botão selecionado colocando fundo branco
+            const activeBtn = document.getElementById('btn-' + tabName);
+            if (activeBtn) {
+                activeBtn.className = "px-4 py-2 rounded-full bg-white text-[#002d44] transition-all duration-300 shadow-sm font-bold";
+            }
+
+            // 🚀 SOLUÇÃO DO PROBLEMA: Rola a janela de volta para o topo perfeitamente!
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        // TEXTOS DINÂMICOS PARA OS TERMOS DO RODAPÉ
+        const modalData = {
+    termos: {
+        title: "Termos e Condições",
+        text: "Bem-vindo ao Lagun Beach.\n\nAo acessar e utilizar nosso site..."
+    },
+    privacidade: {
+        title: "Política de Privacidade",
+        text: "A sua privacidade é importante para nós. É política do site Laguna Beach Club respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar em nosso site oficial, e em quaisquer outros canais operados por nossa equipe.\n\nTrabalhamos com base na Lei Geral de Proteção de Dados (13.709/2018), respeitando também a Constituição Federal, o Código de Defesa do Consumidor (Lei 8.078/90), o Marco Civil da Internet (Lei 12.965/14), e demais normas aplicáveis.\n\nColeta e Uso de Informações\nColetamos dados pessoais apenas quando necessário para fornecer nossos serviços, sempre com seu consentimento, de forma transparente e legal. Informamos claramente os motivos e finalidades da coleta.\nOs dados são armazenados pelo tempo estritamente necessário, utilizando medidas de segurança adequadas para evitar acessos não autorizados, perdas ou modificações indevidas.\nNão compartilhamos seus dados com terceiros, exceto por obrigação legal ou judicial.\n\nSites de Terceiros\nNosso site pode conter links para outros sites. Não temos controle sobre esses domínios e não nos responsabilizamos por seu conteúdo ou políticas de privacidade.\n\nConsentimento\nO uso contínuo do nosso site implica concordância com esta política. O titular pode recusar o fornecimento de dados, ciente de que alguns serviços poderão ficar indisponíveis.\n\nAlterações na Política\nEsta política pode ser alterada a qualquer momento, sem aviso prévio, passando a valer a partir da publicação no site.\n\nResponsabilidades\nO Laguna Beach Club não se responsabiliza pelo uso incorreto, impreciso ou fraudulento dos dados informados pelo usuário. Tampouco pode garantir proteção total contra ataques cibernéticos externos, embora adote todas as medidas razoáveis de segurança.\n\nContato\nDúvidas ou solicitações podem ser enviadas para:\n📩 info@lagunabeachguriu.com"
+    },
+    cookies: {
+        title: "Política de Cookies",
+        text: "Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência.\n\nComo usamos os cookies:\nUtilizamos cookies por vários motivos, principalmente para lembrar suas preferências, garantir a segurança da sua navegação e entender como você interage com o nosso site.\n\nDesativar cookies:\nVocê pode impedir a configuração de cookies ajustando as configurações do seu navegador (consulte a Ajuda do navegador para saber como fazer isso). Esteja ciente de que a desativação de cookies poderá afetar a funcionalidade deste e de muitos outros sites que você visita."
+    }
+};
+        
+
+        // Funções para abrir e fechar a caixinha branca
+        function openModal(type) {
+            const data = modalData[type];
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-text').innerText = data.text;
+            document.getElementById('terms-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('terms-modal').classList.add('hidden');
+        }
+
+        // Fecha o modal caso clique fora da caixinha branca
+        window.onclick = function(event) {
+            const modal = document.getElementById('terms-modal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Carrossel
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.my-slide');
+        function startCarousel() {
+            if(slides.length > 1) {
+                setInterval(() => {
+                    slides[currentSlide].classList.replace('opacity-100', 'opacity-0');
+                    slides[currentSlide].classList.add('pointer-events-none');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.replace('opacity-0', 'opacity-100');
+                    slides[currentSlide].classList.remove('pointer-events-none');
+                }, 3000);
+            }
+        }
+        window.onload = startCarousel;
+    </script>
+</body>
+</html>
